@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fonctions du second degré — Première</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;1,400&family=Source+Code+Pro:wght@400;600&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ════════ HERO ════════ -->
+<div class="hero">
+  <svg class="hero-deco" viewBox="0 0 320 140" fill="none">
+    <path d="M10,130 Q80,-20 160,60 Q240,140 310,20" stroke="white" stroke-width="2" fill="none"/>
+    <circle cx="80" cy="20" r="4" fill="white"/>
+    <circle cx="240" cy="100" r="4" fill="white"/>
+    <line x1="80" x2="80" y1="20" y2="130" stroke="white" stroke-width="1" stroke-dasharray="4,4"/>
+    <line x1="240" x2="240" y1="100" y2="130" stroke="white" stroke-width="1" stroke-dasharray="4,4"/>
+    <text x="70" y="15" fill="white" font-size="11" font-family="serif" font-style="italic">x₁</text>
+    <text x="234" y="96" fill="white" font-size="11" font-family="serif" font-style="italic">x₂</text>
+  </svg>
+  <div class="hero-inner">
+    <div class="hero-tag">Première &nbsp;·&nbsp; Mathématiques &nbsp;·&nbsp; Algèbre</div>
+    <h1>Équations &amp; fonctions<br><em>polynômes du second degré</em></h1>
+    <p class="hero-sub">Forme canonique, discriminant, factorisation, signe — tous les outils pour maîtriser les trinômes.</p>
+    <nav class="nav-pills">
+      <a href="#forme-dev">01 Forme développée</a>
+      <a href="#canonique">02 Forme canonique</a>
+      <a href="#discriminant">03 Discriminant</a>
+      <a href="#signe">04 Tableau de signe</a>
+      <a href="#somme-produit">05 Somme &amp; Produit</a>
+      <a href="#parabole">06 Parabole interactive</a>
+      <a href="#demo">07 Démonstrations</a>
+      <a href="#approfondissement">08 Approfondissements</a>
+      <a href="#qcm">09 QCM</a>
+      <a href="#contact">10 Contact</a>
+    </nav>
+  </div>
+</div>
+
+<!-- ════════ 01 — FORME DÉVELOPPÉE ════════ -->
+<div class="section fade-in" id="forme-dev">
+  <span class="sec-num">01 — Forme développée réduite</span>
+  <h2>La fonction trinôme</h2>
+  <p>Une <strong>fonction polynôme du second degré</strong> (trinôme) est de la forme :</p>
+  <div class="formula">\[f(x) = ax^2 + bx + c, \quad a \neq 0\]</div>
+  <p>où \(a\), \(b\), \(c\) sont des réels. Le paramètre \(a\) détermine l'ouverture et le sens de la parabole.</p>
+  <div class="card ocre">
+    <div class="card-label">Sens de la parabole</div>
+    <p style="margin:0">\(a > 0\) → parabole tournée vers le <strong>haut</strong> (sourire 🙂) &emsp; \(a < 0\) → vers le <strong>bas</strong> (tristesse 🙁)</p>
+  </div>
+
+  <h3>Forme factorisée</h3>
+  <p>Quand \(f\) admet deux racines réelles \(x_1\) et \(x_2\) :</p>
+  <div class="formula moss">\[f(x) = a(x - x_1)(x - x_2)\]</div>
+  <p>Cette forme est directement utile pour lire le <strong>signe</strong> de \(f\) et les <strong>racines</strong>.</p>
+
+  <div class="card moss">
+    <div class="card-label">Racines → facteurs</div>
+    <p style="margin-bottom:6px">Les racines de \(f\) sont exactement les zéros du polynôme, i.e. les solutions de \(f(x) = 0\).</p>
+    <p style="margin:0">Si on connaît deux nombres réels \(x_1\) et \(x_2\), toute fonction s'annulant en ces deux valeurs est de la forme \(a(x-x_1)(x-x_2)\).</p>
+  </div>
+</div>
+
+<!-- ════════ 02 — FORME CANONIQUE ════════ -->
+<div class="section fade-in" id="canonique">
+  <span class="sec-num">02 — Forme canonique</span>
+  <h2>Sommet de la parabole</h2>
+  <p>Tout trinôme \(ax^2+bx+c\) peut s'écrire sous <strong>forme canonique</strong> :</p>
+  <div class="formula ocre">\[f(x) = a\!\left(x - \alpha\right)^2 + \beta\]</div>
+  <p>où \(\alpha = -\dfrac{b}{2a}\) est l'<strong>abscisse du sommet</strong> et \(\beta = f(\alpha) = c - \dfrac{b^2}{4a}\) est la <strong>valeur extrémale</strong>.</p>
+
+  <div class="card">
+    <div class="card-label">Méthode de calcul — Complétion du carré</div>
+    <p style="margin-bottom:6px">\(ax^2+bx+c = a\!\left(x^2+\dfrac{b}{a}x\right)+c = a\!\left(x+\dfrac{b}{2a}\right)^2 - \dfrac{b^2}{4a}+c\)</p>
+    <p style="margin:0">On reconnaît \(\alpha = -\dfrac{b}{2a}\) et \(\beta = c-\dfrac{b^2}{4a}\).</p>
+  </div>
+
+  <div class="card moss">
+    <div class="card-label">Intérêt de la forme canonique</div>
+    <p style="margin:0">Elle donne immédiatement le <strong>minimum</strong> (si \(a>0\)) ou le <strong>maximum</strong> (si \(a<0\)) de \(f\), atteint en \(x=\alpha\). Idéale pour les problèmes d'optimisation.</p>
+  </div>
+
+  <h3>Outil — Forme canonique en direct</h3>
+  <div class="ctrls">
+    <div class="cg"><label>a =</label><input type="range" id="ca" min="-4" max="4" value="1" step=".5"><span class="val" id="ca-v">1</span></div>
+    <div class="cg"><label>b =</label><input type="range" id="cb" min="-8" max="8" value="-2" step="1"><span class="val" id="cb-v">−2</span></div>
+    <div class="cg"><label>c =</label><input type="range" id="cc" min="-8" max="8" value="-3" step="1"><span class="val" id="cc-v">−3</span></div>
+  </div>
+  <div id="canon-res"></div>
+</div>
+
+<!-- ════════ 03 — DISCRIMINANT ════════ -->
+<div class="section fade-in" id="discriminant">
+  <span class="sec-num">03 — Discriminant et résolution</span>
+  <h2>Le discriminant \(\Delta\)</h2>
+
+  <div class="card slate">
+    <div class="card-label">Définition</div>
+    <div class="formula slate">\[\Delta = b^2 - 4ac\]</div>
+  </div>
+
+  <h3>Les trois cas</h3>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:16px 0;">
+    <div class="card">
+      <div class="card-label">Δ &gt; 0</div>
+      <p style="margin-bottom:6px">Deux racines réelles distinctes :</p>
+      <div class="formula" style="font-size:.82rem">\[x_1 = \frac{-b-\sqrt{\Delta}}{2a} \quad x_2 = \frac{-b+\sqrt{\Delta}}{2a}\]</div>
+    </div>
+    <div class="card ocre">
+      <div class="card-label">Δ = 0</div>
+      <p style="margin-bottom:6px">Une racine double :</p>
+      <div class="formula ocre" style="font-size:.85rem">\[x_0 = -\frac{b}{2a} = \alpha\]</div>
+    </div>
+    <div class="card moss">
+      <div class="card-label">Δ &lt; 0</div>
+      <p style="margin-bottom:6px">Pas de racine réelle.</p>
+      <p style="margin:0">Le signe de \(f\) est celui de \(a\) pour tout \(x \in \mathbb{R}\).</p>
+    </div>
+  </div>
+
+  <h3>Démonstration — Résolution de l'équation du second degré</h3>
+  <div class="card slate">
+    <div class="card-label">Preuve par forme canonique</div>
+    <p>\(ax^2+bx+c = 0 \iff a\!\left(x+\dfrac{b}{2a}\right)^2 = \dfrac{b^2-4ac}{4a} = \dfrac{\Delta}{4a}\)</p>
+    <p>Si \(\Delta > 0\) : \(\left(x+\dfrac{b}{2a}\right)^2 = \dfrac{\Delta}{4a^2}\), donc \(x+\dfrac{b}{2a} = \pm\dfrac{\sqrt{\Delta}}{2a}\), d'où \(x_{1,2} = \dfrac{-b \pm \sqrt{\Delta}}{2a}\). \(\blacksquare\)</p>
+    <p style="margin:0">Si \(\Delta = 0\) : unique solution \(x_0 = -\dfrac{b}{2a}\). Si \(\Delta < 0\) : aucune solution réelle.</p>
+  </div>
+
+  <h3>Outil — Résoudre une équation du second degré</h3>
+  <div class="ctrls">
+    <div class="cg"><label>a =</label><input type="range" id="da" min="-4" max="4" value="1" step=".5"><span class="val" id="da-v">1</span></div>
+    <div class="cg"><label>b =</label><input type="range" id="db" min="-10" max="10" value="-1" step="1"><span class="val" id="db-v">−1</span></div>
+    <div class="cg"><label>c =</label><input type="range" id="dc" min="-10" max="10" value="-6" step="1"><span class="val" id="dc-v">−6</span></div>
+  </div>
+  <div id="discr-res"></div>
+</div>
+
+<!-- ════════ 04 — TABLEAU DE SIGNE ════════ -->
+<div class="section fade-in" id="signe">
+  <span class="sec-num">04 — Signe du trinôme</span>
+  <h2>Tableau de signe de \(f(x) = ax^2+bx+c\)</h2>
+
+  <div class="card">
+    <div class="card-label">Règle du signe</div>
+    <p style="margin-bottom:6px">Si \(\Delta > 0\), \(f\) a deux racines \(x_1 < x_2\) :</p>
+    <p style="margin:0">
+      · \(f(x)\) a le <strong>signe de \(-a\)</strong> pour \(x \in ]x_1 ; x_2[\)
+      &ensp;·&ensp;
+      \(f(x)\) a le <strong>signe de \(a\)</strong> pour \(x \in ]-\infty;x_1[ \cup ]x_2;+\infty[\)
+    </p>
+  </div>
+
+  <h3>Outil — Tableau de signe interactif</h3>
+  <div class="ctrls">
+    <div class="cg"><label>a =</label><input type="range" id="sa" min="-3" max="3" value="1" step=".5"><span class="val" id="sa-v">1</span></div>
+    <div class="cg"><label>b =</label><input type="range" id="sb" min="-8" max="8" value="-1" step="1"><span class="val" id="sb-v">−1</span></div>
+    <div class="cg"><label>c =</label><input type="range" id="sc" min="-8" max="8" value="-6" step="1"><span class="val" id="sc-v">−6</span></div>
+  </div>
+  <div id="sign-res"></div>
+</div>
+
+<!-- ════════ 05 — SOMME & PRODUIT ════════ -->
+<div class="section fade-in" id="somme-produit">
+  <span class="sec-num">05 — Somme et produit des racines</span>
+  <h2>Relations entre coefficients et racines</h2>
+
+  <p>Quand \(f(x) = ax^2+bx+c\) admet deux racines \(x_1\) et \(x_2\) :</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;">
+    <div class="card ocre">
+      <div class="card-label">Somme des racines</div>
+      <div class="formula ocre">\[x_1 + x_2 = -\frac{b}{a}\]</div>
+    </div>
+    <div class="card moss">
+      <div class="card-label">Produit des racines</div>
+      <div class="formula moss">\[x_1 \cdot x_2 = \frac{c}{a}\]</div>
+    </div>
+  </div>
+
+  <div class="card slate">
+    <div class="card-label">Preuve — Développement de la forme factorisée</div>
+    <p>\(a(x-x_1)(x-x_2) = a[x^2 - (x_1+x_2)x + x_1 x_2]\). Par identification avec \(ax^2+bx+c\) :</p>
+    <p style="margin:0">\(b = -a(x_1+x_2)\) donc \(x_1+x_2 = -b/a\) &emsp;·&emsp; \(c = a\,x_1 x_2\) donc \(x_1 x_2 = c/a\). \(\blacksquare\)</p>
+  </div>
+
+  <h3>Application — Trouver deux nombres connaissant leur somme et produit</h3>
+  <p>Si l'on cherche deux nombres de somme \(s\) et produit \(p\), ils sont racines de \(x^2 - sx + p = 0\).</p>
+
+  <div class="ctrls">
+    <div class="cg"><label>s (somme) =</label><input type="range" id="sp-s" min="-8" max="8" value="5" step="1"><span class="val" id="sp-s-v">5</span></div>
+    <div class="cg"><label>p (produit) =</label><input type="range" id="sp-p" min="-12" max="12" value="6" step="1"><span class="val" id="sp-p-v">6</span></div>
+  </div>
+  <div id="sp-res"></div>
+</div>
+
+<!-- ════════ 06 — PARABOLE INTERACTIVE ════════ -->
+<div class="section fade-in" id="parabole">
+  <span class="sec-num">06 — Visualisation</span>
+  <h2>Parabole interactive</h2>
+
+  <div class="ctrls">
+    <div class="cg"><label>a =</label><input type="range" id="pa" min="-3" max="3" value="1" step=".25"><span class="val" id="pa-v">1</span></div>
+    <div class="cg"><label>b =</label><input type="range" id="pb" min="-8" max="8" value="-2" step=".5"><span class="val" id="pb-v">−2</span></div>
+    <div class="cg"><label>c =</label><input type="range" id="pc" min="-8" max="8" value="-3" step=".5"><span class="val" id="pc-v">−3</span></div>
+    <button class="btn" id="form-btn" onclick="toggleForm()" style="margin-left:auto">Afficher forme canonique</button>
+  </div>
+  <div class="cvs-wrap">
+    <canvas id="c-para" width="640" height="380"></canvas>
+  </div>
+  <div id="para-info"></div>
+</div>
+
+<!-- ════════ 07 — DÉMONSTRATIONS ════════ -->
+<div class="section fade-in" id="demo">
+  <span class="sec-num">07 — Démonstration complète</span>
+  <h2>Résolution générale de \(ax^2+bx+c=0\)</h2>
+
+  <div style="background:white;border:1px solid var(--line);border-radius:8px;padding:28px;box-shadow:2px 4px 14px rgba(44,36,22,.07);">
+    <p><strong>Étape 1 — Mise en facteur de \(a\):</strong></p>
+    <div class="formula">\[ax^2+bx+c = a\!\left(x^2 + \frac{b}{a}x + \frac{c}{a}\right)\]</div>
+
+    <p><strong>Étape 2 — Complétion du carré :</strong></p>
+    <div class="formula">\[= a\!\left[\left(x + \frac{b}{2a}\right)^2 - \frac{b^2}{4a^2} + \frac{c}{a}\right]\]</div>
+
+    <p><strong>Étape 3 — Simplification :</strong></p>
+    <div class="formula">\[= a\!\left(x + \frac{b}{2a}\right)^2 - \frac{b^2}{4a} + c = a\!\left(x + \frac{b}{2a}\right)^2 - \frac{b^2 - 4ac}{4a}\]</div>
+
+    <p><strong>Étape 4 — On pose \(\Delta = b^2-4ac\) et on résout \(f(x)=0\) :</strong></p>
+    <div class="formula">\[a\!\left(x + \frac{b}{2a}\right)^2 = \frac{\Delta}{4a}\]</div>
+    <div class="formula">\[\left(x + \frac{b}{2a}\right)^2 = \frac{\Delta}{4a^2}\]</div>
+    <p>Si \(\Delta \geq 0\) : \(x + \dfrac{b}{2a} = \pm\dfrac{\sqrt{\Delta}}{2a}\), donc :</p>
+    <div class="formula moss">\[x_{1,2} = \frac{-b \pm \sqrt{\Delta}}{2a} \qquad \blacksquare\]</div>
+  </div>
+</div>
+
+<!-- ════════ 08 — APPROFONDISSEMENTS ════════ -->
+<div class="section fade-in" id="approfondissement">
+  <span class="sec-num">08 — Approfondissements</span>
+  <h2>Au-delà du second degré</h2>
+
+  <div class="card ocre">
+    <div class="card-label">Polynôme du 3e degré admettant une racine évidente</div>
+    <p>Si \(r\) est racine de \(P(x) = ax^3+bx^2+cx+d\), alors \((x-r)\) divise \(P(x)\) :</p>
+    <div class="formula ocre">\[P(x) = (x-r)\cdot Q(x)\]</div>
+    <p style="margin:0">où \(Q\) est un trinôme qu'on trouve par division euclidienne ou identification. On se ramène ensuite au second degré.</p>
+  </div>
+
+  <div class="card moss">
+    <div class="card-label">Factorisation de \(x^n - a^n\)</div>
+    <div class="formula moss">\[x^n - a^n = (x-a)(x^{n-1} + ax^{n-2} + a^2x^{n-3} + \cdots + a^{n-1})\]</div>
+    <p style="margin-bottom:6px">Cas particulier \(a=1\) : \(x^n - 1 = (x-1)(1+x+x^2+\cdots+x^{n-1})\).</p>
+    <p style="margin:0">Vérification : \(a\) est toujours racine de \(x^n-a^n\), donc \((x-a)\) est bien un facteur.</p>
+  </div>
+
+  <h3>Outil — Polynôme de degré 3 avec racine entière</h3>
+  <div class="ctrls">
+    <div class="cg"><label>a₃ =</label><input type="range" id="p3a" min="-3" max="3" value="1" step="1"><span class="val" id="p3a-v">1</span></div>
+    <div class="cg"><label>a₂ =</label><input type="range" id="p3b" min="-8" max="8" value="-2" step="1"><span class="val" id="p3b-v">−2</span></div>
+    <div class="cg"><label>a₁ =</label><input type="range" id="p3c" min="-8" max="8" value="-5" step="1"><span class="val" id="p3c-v">−5</span></div>
+    <div class="cg"><label>a₀ =</label><input type="range" id="p3d" min="-12" max="12" value="6" step="1"><span class="val" id="p3d-v">6</span></div>
+  </div>
+  <div id="p3-res"></div>
+</div>
+
+<!-- ════════ 09 — QCM ════════ -->
+<div class="section fade-in" id="qcm">
+  <span class="sec-num">09 — S'entraîner</span>
+  <h2>QCM interactif</h2>
+  <div class="qcm-shell">
+    <div class="qcm-top">
+      <div class="timer" id="qcm-timer">00:00</div>
+      <div class="ctrls" style="gap:8px;margin:0">
+        <button class="btn" onclick="tPause()" id="t-btn" style="padding:5px 13px;font-size:.68rem;background:transparent;color:rgba(250,246,238,.7);border-color:rgba(250,246,238,.2)">⏸ Pause</button>
+        <button class="btn" onclick="tReset()" style="padding:5px 13px;font-size:.68rem;background:transparent;color:rgba(250,246,238,.7);border-color:rgba(250,246,238,.2)">↺</button>
+      </div>
+      <div class="toggle-row">
+        <label class="tgl"><input type="checkbox" id="t-show" checked onchange="tShowToggle()"><span class="tgl-s"></span></label>
+        <span class="tgl-label">Chrono</span>
+      </div>
+      <div class="score-pill" id="q-score">Score : 0 / 0</div>
+    </div>
+    <div class="qcm-body" id="qcm-body"></div>
+    <div class="qcm-foot">
+      <button class="btn" onclick="qNext()" style="background:var(--ink);color:var(--bg);border-color:var(--ink)">Question suivante →</button>
+      <button class="btn" onclick="qShuffle()">↻ Nouveau QCM</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ 10 — CONTACT ════════ -->
+<div class="section fade-in" id="contact">
+  <span class="sec-num">10 — Contact &amp; Ressources</span>
+  <h2>Prendre rendez-vous</h2>
+  <div class="link-grid">
+    <a class="link-card" href="https://forms.gle/JEVVRr9GfTMru5mM8" target="_blank" rel="noopener">
+      <div class="lc-icon">📋</div>
+      <div class="lc-title">Formulaire</div>
+      <div class="lc-sub">Google Forms</div>
+    </a>
+    <a class="link-card" href="https://calendly.com/didaskalosmanthanon/30min" target="_blank" rel="noopener">
+      <div class="lc-icon">🎓</div>
+      <div class="lc-title">Élèves — 30 min</div>
+      <div class="lc-sub">Calendly</div>
+    </a>
+    <a class="link-card" href="https://calendly.com/didaskalosmanthanon/appel-pro-formation-ou-collaboration-45-min" target="_blank" rel="noopener">
+      <div class="lc-icon">👨‍🏫</div>
+      <div class="lc-title">Profs &amp; formateurs — 45 min</div>
+      <div class="lc-sub">Calendly</div>
+    </a>
+    <a class="link-card" href="https://calendly.com/didaskalosmanthanon/point-parents-presentation-de-l-outil-15-min" target="_blank" rel="noopener">
+      <div class="lc-icon">👨‍👩‍👧</div>
+      <div class="lc-title">Parents — 15 min</div>
+      <div class="lc-sub">Calendly</div>
+    </a>
+  </div>
+  <h3>QR Codes</h3>
+  <div class="qr-row">
+    <div class="qr-item"><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://forms.gle/JEVVRr9GfTMru5mM8" alt="QR"><div class="qr-lbl">Formulaire</div></div>
+    <div class="qr-item"><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://calendly.com/didaskalosmanthanon/30min" alt="QR"><div class="qr-lbl">RDV Élèves</div></div>
+    <div class="qr-item"><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://calendly.com/didaskalosmanthanon/appel-pro-formation-ou-collaboration-45-min" alt="QR"><div class="qr-lbl">RDV Profs</div></div>
+    <div class="qr-item"><img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://calendly.com/didaskalosmanthanon/point-parents-presentation-de-l-outil-15-min" alt="QR"><div class="qr-lbl">RDV Parents</div></div>
+  </div>
+</div>
+
+<footer style="background:var(--ink);color:rgba(250,246,238,.45);text-align:center;padding:26px;font-family:var(--mono);font-size:.7rem;position:relative;z-index:1;">
+  Fonctions polynômes du second degré · Première · Programme officiel 2021
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
